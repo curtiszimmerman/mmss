@@ -7,47 +7,28 @@
  */
 
 class Data {
-	// filelist hash array
-	$fileList = array();
-	// initialize sqlite3 database connection
-	try {
-		$db = new PDO('sqlite:dogsDb_PDO.sqlite');
-		$result = $db->query('SELECT * FROM Files');
-		foreach($result as $row) {
-			$fileList[row['filename']] = $row['filehash'];
-		}
-		$db = NULL;
-	} catch(PDOException $e) {
-		// uh oh! spaghetti-ohs!
-		print 'FUCKING EXCEPTION, BITCH: '.$e->getMessage();
+	private $_dbName;
+	private $_dbType;
+	
+	public function __construct() {
 	}
 	
-	// run hashing algorithms on filelist
-	// compare unsafe hash array to safe hash array
-	foreach($fileList as $fileName => $fileHash) {
-		// check if file exists
-		if() {
-			// md5 the file
-			$newHash = 0;
-			if($newHash == $fileHash) {
-			} else {
-				$error = true;
-				$errorType = 1;
-				$errorLevel = 1;
+	public function __destruct() {
+	}
+	
+	public function connect() {
+		// initialize sqlite3 database connection
+		try {
+			$db = new PDO('sqlite:dogsDb_PDO.sqlite');
+			$result = $db->query('SELECT * FROM Files');
+			foreach($result as $row) {
+				$fileList[row['filename']] = $row['filehash'];
 			}
-		} else {
-			$error = true;
-			$errorType = 2;
-			$errorLevel = 2;
+			$db = NULL;
+		} catch(PDOException $e) {
+			// uh oh! spaghetti-ohs!
+			print 'FUCKING EXCEPTION, BITCH: '.$e->getMessage();
 		}
-	}
-	
-	// check alarm level if-else
-	if($error) {
-		// phone home about error
-		
-	} else {
-		// hibernate
 	}
 }
 
