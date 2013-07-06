@@ -1,20 +1,21 @@
 <?php
 /*
  *  mmss_vox.php -- v0.1.0
+ *  -- communication module ("phone home")
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
 
 class Vox {
 	// initialize error variables
-	private $_error;
-	private $_errorType;
-	private $_errorLevel;
+	private $_hostName;
+	private $_hostPort;
+	private $_hostProto;
 
 	public function __construct() {
-		$this->_error = false;
-		$this->_errorType = 0;
-		$this->_errorLevel = 0;
+		$this->_hostName = 'localhost';
+		$this->_hostPort = 80;
+		$this->_hostProto = 'http';
 	}
 	
 	public function exists() {
