@@ -1,20 +1,22 @@
 <?php
 /*
- *  mmss_installer.php -- v0.1.0
+ *  mmss_installer.php -- v0.1.1
+ *  -- my big, fat, geek installer for mediamoat siteseal
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
 
 class Installer {
 	// generate random IDs
-	public $hostID;
-	public $apiKey;
-	public $mainFileName;
+	private $_apiKey;
+	private $_hostID;
+	private $_mainFileName;
 	
 	public function __contruct() {
-		$this->hostID = $this->keyGen();
+		$this->_hostID = $this->_keyGen();
+		$this->_installID = $this->_keyGenPlus();
 		//fix -- we get this from the fucking (l)user on install
-		$this->apiKey = 0;
+		$this->_apiKey = 0;
 	}
 	
 	public function __destruct() {
@@ -25,7 +27,7 @@ class Installer {
    * $type is alphanumeric (default -- 0), alpha (1), or numeric (2)
    * -- bonus charset is crazy (3) for request or other high-volume IDs
    */
-  public function keyGen($length=1, $type=0) {
+  public function _keyGen($length=1, $type=0) {
 		// necessary? no. good practice? you bet.
 		if(($length < 1) || ($length > 50)) {
 			$length = 1;
@@ -44,7 +46,35 @@ class Installer {
       $block = '';
       for($j=0; $j<13; $j++) {
         $rand = mt_rand(0,62);
-        $block .= substr($this->_charset, $rand, 1);
+        $block .= substr($charset[$type], $rand, 1);
+      }
+      $key .= $block;
+      unset($block);
+    }
+    return $key;
+  }
+  
+  /* keyGenPlus - generate random client/request key 
+   * in format xAAAAAyBBBBBz per RDD design doc for installation key
+   * $length in blocks of 13
+   */
+  private function _keyGenPlus($length) {
+		$charset = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    $chk_a = 0;
+    $chk_b = 0;
+    $key = '';
+    $rand = 0;
+    for($i=0; $i<$length; $i++) {
+      $block = '';
+      for($j=0; $j<13; $j++) {
+        $rand = mt_rand(0,62);
+        if($j == 0) { $chk_a = $rand; }
+        if($j == 6) { $chk_b = $rand; }
+        if($j != 12) { 
+          $block .= substr($charset, $rand, 1);
+        } else {
+          $block .= substr($charset,(($chk_a+$chk_b)%63), 1);
+        }
       }
       $key .= $block;
       unset($block);
