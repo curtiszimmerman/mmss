@@ -20,7 +20,7 @@ class Starter {
 	$fileList = array();
 	// initialize sqlite3 database connection
 	try {
-		$db = new PDO('sqlite:dogsDb_PDO.sqlite');
+		$db = new PDO('sqlite:'.$this->_hostWord.'_mmss_files.sqlite');
 		$result = $db->query('SELECT * FROM Files');
 		foreach($result as $row) {
 			$fileList[row['filename']] = $row['filehash'];
