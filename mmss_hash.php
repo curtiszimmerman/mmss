@@ -1,15 +1,12 @@
 <?php
 /*
- *  mmss_hasher.php -- v0.1.0
+ *  mmss_hash.php -- v0.1.0
+ *  -- file-hashing engine
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
 
-class Hasher {
-	// initialize error variables
-	$error = false;
-	$errorType = 0;
-	$errorLevel = 0;
+class Hash {
 	// filelist hash array
 	$fileList = array();
 	// initialize sqlite3 database connection
@@ -54,5 +51,5 @@ class Hasher {
 	}
 }
 
-$hasher = new Hasher();
+$mmss_hash = new Hash();
 ?>

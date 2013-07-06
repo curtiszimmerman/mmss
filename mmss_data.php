@@ -1,26 +1,17 @@
 <?php
 /*
- *  mmss_primary.php -- v0.1.0
+ *  mmss_data.php -- v0.1.0
+ *  -- data access engine
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
 
-class Starter {
-	// key generated during installation
-	private $_hostWord = 'abcde';
-	
-	public function __construct() {
-	}
-	
-	// initialize error variables
-	$error = false;
-	$errorType = 0;
-	$errorLevel = 0;
+class Data {
 	// filelist hash array
 	$fileList = array();
 	// initialize sqlite3 database connection
 	try {
-		$db = new PDO('sqlite:'.$this->_hostWord.'_mmss_files.sqlite');
+		$db = new PDO('sqlite:dogsDb_PDO.sqlite');
 		$result = $db->query('SELECT * FROM Files');
 		foreach($result as $row) {
 			$fileList[row['filename']] = $row['filehash'];
@@ -60,5 +51,5 @@ class Starter {
 	}
 }
 
-$mmss_starter = new Starter();
+$mmss_data = new Data();
 ?>

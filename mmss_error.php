@@ -33,5 +33,5 @@ class Error {
 	}
 }
 
-$error = new Error();
+$mmss_error = new Error();
 ?>

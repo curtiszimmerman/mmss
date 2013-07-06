@@ -18,11 +18,12 @@ class Vox {
 		$this->_hostProto = 'http';
 	}
 	
-	public function exists() {
-		return $this->_error;
+	public function receive() {
+		return null;
 	}
-
-  public function setError($type=0, $level=0) {
+	
+	public function send() {
+		return null;
 	}
 	
 	// check alarm level if-else
@@ -34,5 +35,5 @@ class Vox {
 	}
 }
 
-$vox = new Vox();
+$mmss_vox = new Vox();
 ?>

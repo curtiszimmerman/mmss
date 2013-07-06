@@ -1,6 +1,6 @@
 <?php
 /*
- *  mmss_install.php -- v0.1.0
+ *  mmss_installer.php -- v0.1.0
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
@@ -66,5 +66,5 @@ class Installer {
   // 
 }
 
-$installer = new Installer();
+$mmss_installer = new Installer();
 ?>
