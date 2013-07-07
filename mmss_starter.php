@@ -1,6 +1,6 @@
 <?php
 /*
- *  mmss_primary.php -- v0.1.0
+ *  mmss_starter.php -- v0.1.0
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
