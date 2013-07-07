@@ -12,10 +12,11 @@ class Vox {
 	private $_hostPort;
 	private $_hostProto;
 
-	public function __construct() {
-		$this->_hostName = 'localhost';
-		$this->_hostPort = 80;
-		$this->_hostProto = 'http';
+//fix -- change this to api.mediamoat.com for production
+	public function __construct($name='localhost', $port=80, $proto='http') {
+		$this->_hostName = $name;
+		$this->_hostPort = $port;
+		$this->_hostProto = $proto;
 	}
 	
 	public function receive() {

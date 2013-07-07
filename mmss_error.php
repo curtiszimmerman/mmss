@@ -5,7 +5,7 @@
  *  contact@mediamoat.com (MediaMoat.com)
  */
 
-class Error {
+class Error implements ErrorInterface {
 	// initialize error variables
 	private $_error;
 	private $_errorType;
@@ -21,7 +21,7 @@ class Error {
 		return $this->_error;
 	}
 
-  public function setError($type=0, $level=0) {
+  public function report($type=0, $level=0) {
 	}
 	
 	// check alarm level if-else

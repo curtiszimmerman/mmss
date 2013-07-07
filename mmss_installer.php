@@ -93,7 +93,10 @@ class Installer {
   //// input email address / API key
   //// TESTS user setup (sorta PHP makefile) to determine if runnable
   // generates host ID, host "word"
-  // 
+  // installs the file tree
+  // gives the user option to automatically install the code snippet
+  // -- or gives instructions on how to add the snippet
+  /* -- <?php include('mmss_abcdef_starter.php');?> */
 }
 
 $mmss_installer = new Installer();

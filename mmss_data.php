@@ -11,12 +11,16 @@ class Data {
 	private $_dbType;
 	
 	public function __construct() {
+		// possible future support for other db types
+		$this->_dbType = 'sqlite';
+		// we'll load mmss configuration information first
+		$this->_dbName = 'config';
 	}
 	
 	public function __destruct() {
 	}
 	
-	public function connect() {
+	public function connect($type='sqlite', $name='config') {
 		// initialize sqlite3 database connection
 		try {
 			$db = new PDO('sqlite:dogsDb_PDO.sqlite');
