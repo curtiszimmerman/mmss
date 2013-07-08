@@ -11,28 +11,30 @@ class Vox {
 	private $_hostName;
 	private $_hostPort;
 	private $_hostProto;
+	private $_isLoaded;
 
 //fix -- change this to api.mediamoat.com for production
-	public function __construct($name='localhost', $port=80, $proto='http') {
-		$this->_hostName = $name;
-		$this->_hostPort = $port;
+	public function __construct() {
+		$this->_isLoaded = false;
+	}
+	
+	public function load($proto, $hostname, $port) {
 		$this->_hostProto = $proto;
+		$this->_hostName = $hostname;
+		$this->_hostPort = $port;
+		$this->_isLoaded = true;
+	}
+	
+	public function isLoaded() {
+		return $this->_isLoaded;
 	}
 	
 	public function receive() {
 		return null;
 	}
 	
-	public function send() {
-		return null;
-	}
-	
-	// check alarm level if-else
-	if($error) {
-		// phone home about error
-		
-	} else {
-		// hibernate
+	public function send($data) {
+		return true;
 	}
 }
 

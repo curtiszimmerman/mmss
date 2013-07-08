@@ -13,11 +13,16 @@ interface DataInterface {
 }
 
 interface ErrorInterface {
-  public function report($type, $level, $message);
+	public function exists();
+  public function report();
 }
 
 interface HashInterface {
 }
 
 interface VoxInterface {
+	public function load($name, $port, $proto);
+	public function isLoaded();
+	public function receive();
+	public function send($url);
 }

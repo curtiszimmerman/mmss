@@ -21,17 +21,7 @@ class Error implements ErrorInterface {
 		return $this->_error;
 	}
 
-  public function report($type=0, $level=0) {
-	}
-	
-	// check alarm level if-else
-	if($error) {
-		// phone home about error
-		
-	} else {
-		// hibernate
+  public function report() {
 	}
 }
-
-$mmss_error = new Error();
 ?>
