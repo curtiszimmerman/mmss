@@ -6,9 +6,6 @@
  *  contact@mediamoat.com (MediaMoat.com)
  */
 
-interface CoreInterface {
-}
-
 interface DataInterface {
 }
 

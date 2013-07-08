@@ -10,17 +10,27 @@ class Error implements ErrorInterface {
 	private $_error;
 	private $_errorType;
 	private $_errorLevel;
+	private $_errorMessage;
 
-	public function __construct() {
-		$this->_error = false;
-		$this->_errorType = 0;
-		$this->_errorLevel = 0;
+	public function __construct($type, $level, $message) {
+		$this->_error = true;
+		$this->_errorLevel = $level;
+		$this->_errorMessage = $message;
+		$this->_errorType = $type;
 	}
 	
-	public function exists() {
-		return $this->_error;
+	public function getLevel() {
+		return $this->_errorLevel;
+	}
+	
+	public function getMessage() {
+		return $this->_errorMessage;
 	}
 
+	public function getType() {
+		return $this->_errorType;
+	}
+	
   public function report() {
 	}
 }

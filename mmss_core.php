@@ -4,10 +4,20 @@
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
+  
+//
+////
+//// FIX todo - use mmss_config.php (ACTUAL FILENAME since it's entirely
+//// static library class) to read extremely basic configuration options 
+//// such as db names, magic word, connection information, and then load 
+//// the rest of the configuration data (profile info and different hash
+//// signatures) from regular databases. launch into core operations! :)
+////
+//
 
 include('mmss_config.php');
 
-class Core implements CoreInterface {
+class Core {
 	// configuration settings array
 	private $_config;
 	// is all of our startup data properly initialized?
