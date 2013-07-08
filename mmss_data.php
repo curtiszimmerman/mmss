@@ -5,8 +5,14 @@
  *  Copyright(C)2013 mediamoat.com
  *  contact@mediamoat.com (MediaMoat.com)
  */
+ 
+//
+////
+//// FIX todo -- this needs to reflect the PDO structure
+////
+//
 
-class Data {
+class Data extends PDO {
 	private $_dbName;
 	private $_dbType;
 	
@@ -35,6 +41,4 @@ class Data {
 		}
 	}
 }
-
-$mmss_data = new Data();
 ?>
